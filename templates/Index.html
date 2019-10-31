@@ -1,0 +1,58 @@
+                        {{ define "Index" }}
+                        {{ template "Header" }}
+
+                        <div class="pcoded-inner-content">
+                            <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-body start -->
+                                    <div class="page-body">
+                                        <div class="row" style="margin-bottom: 10px">
+                                            <div class="col-md-4">
+                <h2 style="margin-top:0px">Data</h2>
+            </div>
+            <div class="col-md-4 text-center">
+            </div>
+            <div class="col-md-4 text-right">
+                <a href="/New" class="btn btn-primary btn-mat">Tambah Barang</a>
+        </div>
+        </div>
+        <table class="table table-bordered table-striped" id="mytable">
+            <thead>
+                <tr>
+                    <th width="80px">No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th width="200px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range . }}
+                <tr>
+                     <td>{{ .Id }}</td>
+                    <td> {{ .Name }}  </td>
+                    <td>{{ .Price }} </td>
+                    <td>{{ .Quantity }} </td>
+                    <td>
+                        <a href="/edit?id={{ .Id }}" class="btn btn-sm btn-primary btn-mat">Update</a>
+                        <a href="/delete?id={{ .Id }}" class="btn btn-sm btn-danger btn-mat">Delete</a>
+                    </td>
+                </tr>
+                {{ end }}
+            </tbody>
+        
+        </table>
+                                    </div>
+                                    <!-- Page-body end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      {{ template "Footer" }}
+    {{ end }}
+
